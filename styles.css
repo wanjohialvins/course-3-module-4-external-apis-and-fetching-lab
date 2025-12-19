@@ -1,79 +1,119 @@
-/* General Styles */
+/* General */
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #c3ecf5, #f0f9ff);
   margin: 0;
   padding: 0;
-  background-color: #f4f4f4;
   color: #333;
-  line-height: 1.6;
 }
 
-h1 {
+.container {
+  max-width: 700px;
+  margin: 40px auto;
+  background: #fff;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
   text-align: center;
-  margin: 20px 0;
 }
 
-/* Input Field and Button */
-#city-input {
-  display: block;
-  margin: 20px auto;
-  padding: 10px;
+/* Headings */
+h1 {
+  margin-bottom: 25px;
+  color: #007bff;
+}
+
+/* Input & Button */
+#state-input, #fetch-alerts {
   width: 80%;
-  max-width: 400px;
+  max-width: 300px;
+  padding: 12px 15px;
+  margin: 10px 0;
   font-size: 16px;
+  border-radius: 8px;
   border: 1px solid #ccc;
-  border-radius: 4px;
+  outline: none;
+  transition: all 0.3s ease;
 }
 
-#fetch-weather {
-  display: block;
-  margin: 10px auto;
-  padding: 10px 20px;
-  font-size: 16px;
+#state-input:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0,123,255,0.5);
+}
+
+#fetch-alerts {
   background-color: #007bff;
   color: #fff;
   border: none;
-  border-radius: 4px;
   cursor: pointer;
 }
 
-#fetch-weather:hover {
+#fetch-alerts:hover {
   background-color: #0056b3;
 }
 
-/* Weather Display Section */
-#weather-display {
-  margin: 20px auto;
-  padding: 10px;
-  width: 90%;
-  max-width: 600px;
-  background: #fff;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-/* Error Message */
-#error-message {
-  color: red;
-  font-weight: bold;
-  text-align: center;
-  margin-top: 10px;
-}
-
-/* Hidden Class for Error Handling */
-.hidden {
-  display: none;
-}
-
-/* BONUS: Loading Spinner */
+/* Loading Spinner */
 #loading-spinner {
   display: none;
   margin: 20px auto;
-  text-align: center;
 }
 
-#loading-spinner img {
-  width: 50px;
-  height: 50px;
+/* Alerts */
+#alerts-display {
+  margin-top: 20px;
+  text-align: left;
+}
+
+.alert-summary {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+ul.alert-list {
+  list-style: disc;
+  padding-left: 20px;
+}
+
+li.alert-item {
+  margin-bottom: 8px;
+  padding: 8px;
+  border-left: 5px solid #007bff;
+  border-radius: 4px;
+  background: #f1f9ff;
+  transition: transform 0.2s;
+}
+
+li.alert-item:hover {
+  transform: scale(1.02);
+}
+
+/* Severity Colors */
+.severity-Minor { border-left-color: green; }
+.severity-Moderate { border-left-color: orange; }
+.severity-Severe { border-left-color: red; }
+.severity-Unknown { border-left-color: gray; }
+
+/* Error Message */
+#error-message {
+  color: #d8000c;
+  background-color: #ffd2d2;
+  padding: 10px;
+  margin-top: 15px;
+  border-radius: 6px;
+  display: none;
+  font-weight: bold;
+}
+
+.hidden {
+  display: none;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
